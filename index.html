@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>ACME Car Rental</h1>
+    </header>
+    <form action="#" id="carRentalForm">
+        <fieldset>
+        <label for="pickup">Pick Date: <input type="date" name="pickup" id="pickUpDate"></label>
+        <label for="numbDays">Number Of Days: <input type="text" name="numbdays" id="numbDays"></label>
+    </fieldset>
+    <fieldset>
+     <legend>Rental Car Options</legend>
+        
+        <label for="tollTag"><input type="checkbox" name="tollTag" id="tollTag" checked>Electronic Toll Tag (3.95/day)</label>
+        
+        <label for="gps"><input type="checkbox" name="gps" id="gps">GPS (2.95/day)</label>
+        
+        <label for="roadside"><input type="checkbox" name="roadside" id="roadside">Roadside Assistance (2.95/day)</label>
+    </fieldset>
+    <fieldset>
+        <legend>Under 25</legend>
+        <label for="no"><input type="radio" name="no" id="no">No</label>
+       <label for="yesyes"><input type="radio" name="yesyes" id="yesyes">Yes</label>
+    </fieldset>
+    <button type="button" id="ETC">Estimated Total Cost</button>
+    </form>
+    <br>
+    <table>
+        <tbody>
+          <tr>
+            <td>Car Rental:</td>
+            <td id="carRentalCost">XX.XX</td>
+          </tr>
+          <tr>
+            <td>Options:</td>
+            <td id="optionsCost">XX.XX</td>
+          </tr>
+          <tr>
+            <td>Under 25 Surcharge:</td>
+            <td id="surcharge">XX.XX</td>
+          </tr>
+        
+          <tr>
+            <td>Total Due:</td>
+            <td id="TotalCost">XX.XX</td>
+          </tr>
+        </tbody>
+        </table>
+    
+</body>
+</html>
