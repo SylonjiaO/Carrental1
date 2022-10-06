@@ -4,32 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.3/dist/paper.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
+ 
+  <div class="paper">
     <header>
-        <h1>ACME Car Rental</h1>
+      <h1 class="rainbow-text">By Sylonjia O</h1>
     </header>
+    <div class="paper container-xs">
+    <header>
+        <h1 class="rainbow">ACME Car Rental</h1>
+    </header>
+   
     <form action="#" id="carRentalForm">
         <fieldset>
-        <label for="pickup">Pick Date: <input type="date" name="pickup" id="pickUpDate"></label>
-        <label for="numbDays">Number Of Days: <input type="text" name="numbdays" id="numbDays"></label>
+        <label for="pickup" class="rainbow">Pick Date: <input type="date" name="pickup" id="pickUpDate" class="rainbow-text"></label>
+        <label for="numbDays" class="rainbow">Number Of Days: <input type="text" name="numbdays" id="numbDays"class="rainbow-text"></label>
     </fieldset>
     <fieldset>
-     <legend>Rental Car Options</legend>
+     <legend class="rainbow-text">Rental Car Options</legend>
         
-        <label for="tollTag"><input type="checkbox" name="tollTag" id="tollTag" checked>Electronic Toll Tag (3.95/day)</label>
+        <label for="tollTag" ><input type="checkbox" name="tollTag" id="tollTag" checked>Electronic Toll Tag (3.95/day)</label>
         
-        <label for="gps"><input type="checkbox" name="gps" id="gps">GPS (2.95/day)</label>
+        <label for="gps" ><input type="checkbox" name="gps" id="gps">GPS (2.95/day)</label>
         
-        <label for="roadside"><input type="checkbox" name="roadside" id="roadside">Roadside Assistance (2.95/day)</label>
+        <label for="roadside" ><input type="checkbox" name="roadside" id="roadside">Roadside Assistance (2.95/day)</label>
     </fieldset>
     <fieldset>
-        <legend>Under 25</legend>
+        <legend class="rainbow-text">Under 25</legend>
         <label for="no"><input type="radio" name="no" id="no">No</label>
        <label for="yesyes"><input type="radio" name="yesyes" id="yesyes">Yes</label>
     </fieldset>
-    <button type="button" id="ETC">Estimated Total Cost</button>
+    <button type="button" id="ETC" class="rainbow-text">Estimated Total Cost</button>
     </form>
     <br>
     <table>
@@ -53,6 +62,10 @@
           </tr>
         </tbody>
         </table>
-    
+        <div class="to-top">
+          <a href="#top" class="paper-btn margin">^</a>
+        </div>
+       </div>
+      </div>
 </body>
 </html>
