@@ -1,74 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.3/dist/paper.min.css">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/papercss@1.8.3/dist/paper.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-</head>
-<body>
- 
-  <div class="paper">
-   
-    <div class="paper container-xs">
-    <header>
-        <h1 class="rainbow animate__animated  animate__rubberBand animate__slow">ACME Car Rental</h1>
-    </header>
-   
-    <form action="#" id="carRentalForm">
-        <fieldset>
-        <label for="pickup" class="rainbow">Pick Date: <input type="date" name="pickup" id="pickUpDate" class="rainbow-text"></label>
-        <label for="numbDays" class="rainbow">Number Of Days: <input type="text" name="numbdays" id="numbDays"class="rainbow-text"></label>
-    </fieldset>
-    <fieldset>
-     <legend class="rainbow-text">Rental Car Options</legend>
-        
-        <label for="tollTag" ><input type="checkbox" name="tollTag" id="tollTag" checked>Electronic Toll Tag (3.95/day)</label>
-        
-        <label for="gps" ><input type="checkbox" name="gps" id="gps">GPS (2.95/day)</label>
-        
-        <label for="roadside" ><input type="checkbox" name="roadside" id="roadside">Roadside Assistance (2.95/day)</label>
-    </fieldset>
-    <fieldset>
-        <legend class="rainbow-text">Under 25</legend>
-        <label for="no"><input type="radio" name="no" id="no">No</label>
-       <label for="yesyes"><input type="radio" name="yesyes" id="yesyes">Yes</label>
-    </fieldset>
-    <button type="button" id="ETC" class="rainbow-text">Estimated Total Cost</button>
-    </form>
-    <br>
-    <table>
-        <tbody>
-          <tr>
-            <td>Car Rental:</td>
-            <td id="carRentalCost">XX.XX</td>
-          </tr>
-          <tr>
-            <td>Options:</td>
-            <td id="optionsCost">XX.XX</td>
-          </tr>
-          <tr>
-            <td>Under 25 Surcharge:</td>
-            <td id="surcharge">XX.XX</td>
-          </tr>
-        
-          <tr>
-            <td>Total Due:</td>
-            <td id="TotalCost">XX.XX</td>
-          </tr>
-        </tbody>
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <div class="paper">
+      <div class="paper container-xs">
+        <header>
+          <h1
+            class="rainbow animate__animated animate__rubberBand animate__slow"
+          >
+            ACME Car Rental
+          </h1>
+        </header>
+
+        <form action="#" id="carRentalForm">
+          <fieldset>
+            <label for="pickup" class="rainbow"
+              >Pick Date:
+              <input
+                type="date"
+                name="pickup"
+                id="pickUpDate"
+                class="rainbow-text"
+            /></label>
+            <label for="numbDays" class="rainbow"
+              >Number Of Days:
+              <input
+                type="number"
+                name="numbdays"
+                id="numbDays"
+                class="rainbow-text"
+            /></label>
+          </fieldset>
+          <fieldset>
+            <legend class="rainbow-text">Rental Car Options</legend>
+
+            <label for="tollTag"
+              ><input
+                type="checkbox"
+                name="tollTag"
+                id="tollTag"
+                value="tollTag"
+                checked
+              />Electronic Toll Tag (3.95/day)</label
+            >
+
+            <label for="gps"
+              ><input type="checkbox" name="gps" id="gps" value="gps" />GPS
+              (4.95/day)</label
+            >
+
+            <label for="roadside"
+              ><input
+                type="checkbox"
+                name="roadside"
+                id="roadside"
+                value="roadside"
+              />Roadside Assistance (2.95/day)</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="rainbow-text">Under 25</legend>
+            <label for="noyes"
+              ><input
+                type="radio"
+                name="yesno"
+                id="no"
+                value="not"
+              />No</label
+            >
+            <label for="noyes"
+              ><input
+                type="radio"
+                name="yesno"
+                id="noyes"
+                value="yes"
+              />Yes</label
+            >
+          </fieldset>
+          <button type="button" onclick="etc();" class="rainbow-text">
+            Estimated Total Cost
+          </button>
+        </form>
+        <br />
+        <table>
+          <tbody>
+            <tr>
+              <td>Car Rental:</td>
+              <td id="carRentalCost">XX.XX</td>
+            </tr>
+            <tr>
+              <td>Options:</td>
+              <td id="options-Cost">XX.XX</td>
+            </tr>
+            <tr>
+              <td>Under 25 Surcharge:</td>
+              <td id="surcharge">XX.XX</td>
+            </tr>
+
+            <tr>
+              <td>Total Due:</td>
+              <td id="totalCost">XX.XX</td>
+            </tr>
+          </tbody>
         </table>
         <div class="to-top">
           <a href="#top" class="paper-btn margin">^</a>
         </div>
-       </div>
       </div>
+    </div>
+    <script>
+      function etc() {
+        //get querey selectors
+        let days = parseInt(document.getElementById("numbDays").value);
+        let ageSurchargeOption = document.querySelector(
+          "input[name='yesno']:checked"
+        );
+        let roadside = document.getElementById("roadside").checked;
+        let gps = document.getElementById("gps").checked;
+        let tollTag = document.getElementById("tollTag").checked;
+        //calculate
+        let payPerDay = days * 29.99;
+        let ageSurcharge = 0;
+        let extraPay = 0;
 
-</body>
+        if (tollTag) {
+          extraPay += 3.94 * days;
+        }
+        if (gps) {
+          extraPay += 4.95 * days;
+        }
+        if (roadside) {
+          extraPay += 2.95 * days;
+        }
+
+        if (ageSurchargeOption && ageSurchargeOption.value === "yes") {
+          ageSurcharge = payPerDay * 0.3;
+        }
+
+        let total = payPerDay + extraPay + ageSurcharge;
+
+        //display
+        document.getElementById("carRentalCost").innerText = payPerDay.toFixed(2);
+        document.getElementById("options-Cost").innerText = extraPay.toFixed(2);
+        document.getElementById("surcharge").innerText = ageSurcharge.toFixed(2);
+        document.getElementById("totalCost").innerText = total.toFixed(2);
+
+        //if statement- check age, options
+      }
+    </script>
+  </body>
 </html>
